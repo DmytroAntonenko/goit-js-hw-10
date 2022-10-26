@@ -7,6 +7,7 @@ const DEBOUNCE_DELAY = 300;
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 const inputRef = document.querySelector('#search-box');
+const itemRef = document.querySelector('.country-item');
 
 inputRef.addEventListener('input', debounce(searchCountry, DEBOUNCE_DELAY));
 
@@ -61,3 +62,8 @@ function addInfo(country) {
   </div>`;
 };
 
+countryList.addEventListener('click', chooseCountry);
+
+function chooseCountry(event) {
+  console.log(itemRef)
+}
