@@ -10,7 +10,6 @@ const inputRef = document.querySelector('#search-box');
 const itemRef = document.querySelector('.country-item');
 
 inputRef.addEventListener('input', debounce(searchCountry, DEBOUNCE_DELAY));
-
 function searchCountry(event) {
   clearCountry()
   const countryName = inputRef.value.trim().toLowerCase();
@@ -65,5 +64,8 @@ function addInfo(country) {
 countryList.addEventListener('click', chooseCountry);
 
 function chooseCountry(event) {
-  console.log(itemRef)
+    clearCountry()
+    const countryName = event.target.textContent.trim().toLowerCase();
+    fetchCountry(countryName).then(showCountry)
+    .catch(fetchError);
 }
